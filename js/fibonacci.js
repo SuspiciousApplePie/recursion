@@ -14,3 +14,22 @@ export function fibsLoop(n) {
 
   return fibsSequence;
 }
+
+export function fibsRecs(n) {
+  let fibsSequence = [];
+  if (n === 1) {
+    fibsSequence.push(0);
+    return fibsSequence;
+  }
+  const recursedFibs = fibsRecs(n - 1);
+  fibsSequence = fibsSequence.concat(recursedFibs);
+  if (fibsSequence.length === 1) {
+    fibsSequence.push(1);
+  } else {
+    fibsSequence.push(
+      fibsSequence[fibsSequence.length - 2] +
+        fibsSequence[fibsSequence.length - 1],
+    );
+  }
+  return fibsSequence;
+}
