@@ -1,4 +1,5 @@
 export function fibsLoop(n) {
+  console.log("Recursive");
   const fibsSequence = [];
   for (let iteration = 0; iteration < n; iteration++) {
     if (typeof fibsSequence[iteration - 1] !== "number") {
@@ -21,8 +22,7 @@ export function fibsRecs(n) {
     fibsSequence.push(0);
     return fibsSequence;
   }
-  const recursedFibs = fibsRecs(n - 1);
-  fibsSequence = fibsSequence.concat(recursedFibs);
+  fibsSequence = fibsSequence.concat(fibsRecs(n - 1));
   if (fibsSequence.length === 1) {
     fibsSequence.push(1);
   } else {
